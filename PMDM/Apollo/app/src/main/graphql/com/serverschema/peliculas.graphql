@@ -1,0 +1,33 @@
+query Peliculas{
+    getPeliculas{
+        id
+        titulo
+        anoLanzamiento
+        duracion
+    }
+}
+
+query getDirectorPorPelicula($id: ID!){
+    getDirectorPorPelicula(peliculaId: $id){
+        id
+        nombre
+        nacionalidad
+        fechaNacimiento
+    }
+}
+
+query getActoresPelicula($id: ID!){
+    getActoresPelicula(peliculaId: $id){
+        id
+        nombre
+        nacionalidad
+        fechaNacimiento
+    }
+}
+
+query getGenerosPelicula($id: ID!){
+    getGenerosPelicula(peliculaId: $id){
+        id
+        nombre
+    }
+}

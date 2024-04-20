@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Apollo_DavidRoldan</string>
+    <string name="ganador">GANADOR</string>
+    <string name="categoria">CATEGORIA</string>
+    <string name="anyo">AÑO</string>
+    <string name="pelicula">PELICULA</string>
+    <string name="add">Add</string>
+    <string name="addpremio">Añadir premio</string>
+    <string name="update">Update</string>
+    <string name="updatepremio">Update premio</string>
+    <string name="seleccionapelicula">Selecciona una película</string>
+    <string name="categoria_">Categoria</string>
+    <string name="seleccionanombre">Selecciona un nombre</string>
+    <string name="delete">Delete</string>
+    <string name="loadinganimation">LoadingAnimation</string>
+    <string name="loadinganimationalpha">LoadingAnimationAlpha</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="roleadmin">"ADMIN: root | 2dam"</string>
+    <string name="roleuser">USER: test | 2dam</string>
+    <string name="generospelicula">"GÉNEROS DE LA PELÍCULA"</string>
+    <string name="actores">"ACTORES"</string>
+    <string name="director">"DIRECTOR"</string>
+    <string name="nodirector">"No hay director"</string>
+    <string name="nonacionalidad">"No hay nacionalidad"</string>
+
+
+</resources>

@@ -1,0 +1,63 @@
+query Premios {
+    getPremios {
+        id
+        nombre
+        categoria
+        ano
+        peliculaGanadora {
+            id
+            titulo
+            anoLanzamiento
+            duracion
+        }
+    }
+}
+
+query getPremioPorId($id: ID!) {
+    getPremioPorId(id: $id) {
+        id
+        nombre
+        categoria
+        ano
+        peliculaGanadora {
+            id
+            titulo
+            anoLanzamiento
+            duracion
+        }
+    }
+}
+
+mutation addPremio($nombre: String!, $categoria: String!, $ano: Int!, $peliculaGanadoraId: ID!) {
+    addPremio(premioInput: {nombre: $nombre, categoria: $categoria, ano: $ano, peliculaGanadoraId: $peliculaGanadoraId}) {
+        id
+        nombre
+        categoria
+        ano
+        peliculaGanadora {
+            id
+            titulo
+            anoLanzamiento
+            duracion
+        }
+    }
+}
+
+mutation updatePremio($id: ID!, $nombre: String!, $categoria: String!, $ano: Int!, $peliculaGanadoraId: ID!) {
+    updatePremio(updatePremioInput: {id: $id, nombre: $nombre, categoria: $categoria, ano: $ano, peliculaGanadoraId: $peliculaGanadoraId}) {
+        id
+        nombre
+        categoria
+        ano
+        peliculaGanadora {
+            id
+            titulo
+            anoLanzamiento
+            duracion
+        }
+    }
+}
+
+mutation deletePremio($id: ID!) {
+    deletePremio(id: $id)
+}

@@ -1,0 +1,15 @@
+[
+  {
+    "caducidad": "2023-02-16",
+    "productType": "ProductoPerecedero",
+    "id": 1,
+    "nombre": "LACASITOS",
+    "precio": 12.0,
+    "stock": 97,
+    "ingredientes": [
+      {
+        "nombre": "CACAO"
+      }
+    ]
+  }
+]

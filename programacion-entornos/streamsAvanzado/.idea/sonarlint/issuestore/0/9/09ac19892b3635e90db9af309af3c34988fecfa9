@@ -1,0 +1,21 @@
+
+œ
+java:S1186Q"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ãÔ›üÿÿÿÿ
+œ
+java:S1186V"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ş‹Îßúÿÿÿÿ
+I
+java:S2201"'The return value of "get" must be used.(âç•Íùÿÿÿÿ8Ò·íÒÉ/
+O
+java:S2201"-The return value of "orElseGet" must be used.(¡„Üşÿÿÿÿ8Ô·íÒÉ/
+_
+java:S1612/"=Replace this lambda with method reference 'Cuenta::getSaldo'.(ÄÀÛ×üÿÿÿÿ8İ·íÒÉ/
+4
+java:S2119I"Save and re-use this "Random".(¡Å”¦
+N
+java:S1144Q"3Remove this unused private "setupProductos" method.(ãÔ›üÿÿÿÿ
+J
+java:S1144V"/Remove this unused private "setPedidos" method.(ş‹Îßúÿÿÿÿ
+d
+java:S2259"BA "NullPointerException" could be thrown; "null" is nullable here.(¡„Üşÿÿÿÿ8¸íÒÉ/
+Y
+java:S3655"7Call "Optional#isPresent()" before accessing the value.(âç•Íùÿÿÿÿ8¸íÒÉ/

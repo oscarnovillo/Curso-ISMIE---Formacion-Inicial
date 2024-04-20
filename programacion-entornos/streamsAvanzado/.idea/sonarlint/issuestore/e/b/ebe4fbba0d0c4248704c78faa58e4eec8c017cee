@@ -1,0 +1,13 @@
+
+4
+java:S2119/"Save and re-use this "Random".(¡Å”¦
+K
+java:S1854I"5Remove this useless assignment to local variable "f".(î·Üˆ
+R
+java:S1854P"<Remove this useless assignment to local variable "alquiler".(“’Â¥
+<
+java:S1481I"&Remove this unused "f" local variable.(î·Üˆ
+4
+java:S2119J"Save and re-use this "Random".(¡Å”¦
+C
+java:S1481P"-Remove this unused "alquiler" local variable.(“’Â¥

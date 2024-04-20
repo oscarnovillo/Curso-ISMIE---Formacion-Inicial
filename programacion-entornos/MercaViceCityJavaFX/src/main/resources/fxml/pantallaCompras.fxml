@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXComboBox?>
+<?import io.github.palexdev.materialfx.controls.MFXListView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="700.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.pantallas.compras_realizadas.ComprasRealizadasController">
+    <TableView fx:id="tablaProductos" layoutX="28.0" layoutY="79.0" onMouseClicked="#updateFields" prefHeight="474.0" prefWidth="730.0">
+        <columns>
+            <TableColumn fx:id="columnID" minWidth="72.00000190734863" prefWidth="72.00000190734863" text="%ID" />
+            <TableColumn fx:id="columnTipo" minWidth="83.0" prefWidth="135.20000457763672" text="%Tipo" />
+            <TableColumn fx:id="columnNombre" prefWidth="165.0" text="%Nombre" />
+            <TableColumn fx:id="columnPrecio" minWidth="0.0" prefWidth="90.0" text="%Precio" />
+            <TableColumn fx:id="columnUnidades" minWidth="0.0" prefWidth="90.0" text="%Cantidad" />
+            <TableColumn fx:id="columnCaducidad" prefWidth="159.99993896484375" text="%Caducidad" />
+        </columns>
+    </TableView>
+    <Label layoutX="766.0" layoutY="93.0" text="%Ingredientes" />
+    <MFXListView fx:id="listIngredientes" layoutX="766.0" layoutY="116.0" prefHeight="438.0" prefWidth="158.0" />
+    <MFXButton fx:id="verProductos" buttonType="RAISED" layoutX="127.0" layoutY="584.0" mnemonicParsing="false" onAction="#verProductos" prefHeight="40.0" prefWidth="290.0" rippleColor="#9c0b99" text="%VerProductosDisponibles" />
+    <MFXButton fx:id="verPerfil" buttonType="RAISED" layoutX="440.0" layoutY="584.0" mnemonicParsing="false" onAction="#verPerfil" prefHeight="40.0" prefWidth="218.0" rippleColor="#9c0b99" text="%IrAlPerfil" />
+   <MFXComboBox fx:id="selectorCompra" layoutX="183.0" layoutY="23.0" onAction="#updateTabla" />
+   <Label layoutX="28.0" layoutY="41.0" text="%SeleccionaCompra" />
+</AnchorPane>

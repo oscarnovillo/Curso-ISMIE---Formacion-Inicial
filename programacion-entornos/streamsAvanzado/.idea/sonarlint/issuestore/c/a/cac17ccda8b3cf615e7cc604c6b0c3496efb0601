@@ -1,0 +1,19 @@
+
+œ
+java:S1186D"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ıìëÊùÿÿÿÿ
+—
+java:S1186I"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(œÎ—Ï
+–
+java:S1186O"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Óã¾	
+—
+java:S1186U"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ëùî
+C
+java:S2201"(The return value of "size" must be used.(˜ÁÍÒøÿÿÿÿ
+L
+java:S1854("7Remove this useless assignment to local variable "map".(»œö)
+=
+java:S1481("(Remove this unused "map" local variable.(»œö)
+z
+java:S1488"_Immediately return this expression instead of assigning it to the temporary variable "cliente".(­îëŒúÿÿÿÿ
+R
+java:S3655"7Call "Optional#isPresent()" before accessing the value.(­îëŒúÿÿÿÿ

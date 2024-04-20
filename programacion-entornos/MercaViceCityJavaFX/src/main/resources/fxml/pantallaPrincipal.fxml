@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.font.MFXFontIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane fx:id="root" prefHeight="700.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.pantallas.principal.PrincipalController">
+    <top>
+        <HBox fx:id="windowHeader" alignment="CENTER_RIGHT" layoutY="6.0" prefHeight="50.0" prefWidth="1281.0" spacing="10.0" styleClass="windowBar" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <padding>
+                <Insets right="10.0" />
+            </padding>
+            <MenuBar id="menuBar" fx:id="menuPrincipal" prefHeight="24.0" prefWidth="291.0">
+                <HBox.margin>
+                    <Insets right="610.0" top="20.0" />
+                </HBox.margin>
+                <Menu fx:id="menuSesion" mnemonicParsing="false" text="Sesion">
+                    <MenuItem fx:id="menuItemPantallaInicio" mnemonicParsing="false" onAction="#menuOnClick" text="%Inicio" />
+                    <MenuItem fx:id="menuItemLogout" mnemonicParsing="false" onAction="#logout" text="%CerrarSesión" />
+                    <MenuItem fx:id="menuItemExit" mnemonicParsing="false" onAction="#exit" text="Salir" />
+                    <MenuItem fx:id="menuItemModoOscuro" mnemonicParsing="false" onAction="#cambiarcss" text="%CambiarTema" />
+                </Menu>
+                <Menu fx:id="menuAdministracion" mnemonicParsing="false" text="Administración">
+                    <MenuItem fx:id="menuItemClientesAdmin" mnemonicParsing="false" onAction="#menuOnClick" text="%Clientes" />
+                    <MenuItem fx:id="menuItemProductosAdmin" mnemonicParsing="false" onAction="#menuOnClick" text="%Productos" />
+                </Menu>
+                <Menu fx:id="menuCliente" mnemonicParsing="false" text="Menu">
+                    <MenuItem fx:id="menuItemProductosCliente" mnemonicParsing="false" onAction="#menuOnClick" text="%ListarProductos" />
+                    <MenuItem fx:id="menuItemPerfilCliente" mnemonicParsing="false" onAction="#menuOnClick" text="%AdministrarPerfil" />
+                    <MenuItem fx:id="menuItemCarrito" mnemonicParsing="false" onAction="#menuOnClick" text="%Carrito" />
+                    <MenuItem fx:id="menuItemComprasCliente" mnemonicParsing="false" onAction="#menuOnClick" text="%ComprasAntiguas" />
+                </Menu>
+                <Menu fx:id="menuHelp" mnemonicParsing="false" text="Help">
+                    <MenuItem fx:id="menuItemAcercaDe" mnemonicParsing="false" onAction="#acercaDe" text="%AcercaDe" />
+                </Menu>
+            </MenuBar>
+            <MFXFontIcon fx:id="alwaysOnTopIcon" description="mfx-lock" size="21.0" styleClass="always-on-top-icon" />
+            <MFXFontIcon fx:id="minimizeIcon" description="mfx-minus" size="20.0" styleClass="minimize-icon" />
+            <MFXFontIcon fx:id="closeIcon" description="mfx-x-alt" size="20.0" styleClass="close-icon" />
+        </HBox>
+    </top>
+</BorderPane>

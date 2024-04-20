@@ -1,0 +1,12 @@
+{
+  "123": {
+    "descuento": 0,
+    "clientType": "ClienteNormal",
+    "dni": "123",
+    "nombre": "Javier",
+    "monederoCliente": [],
+    "compraActual": [],
+    "comprasCliente": [],
+    "alergenos": []
+  }
+}

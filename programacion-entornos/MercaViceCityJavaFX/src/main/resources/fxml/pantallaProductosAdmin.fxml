@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane prefHeight="700.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="gui.pantallas.productos_admin.ProductosAdminController">
+    <MFXButton fx:id="addProducto" buttonType="RAISED" layoutX="719.0" layoutY="364.0" mnemonicParsing="false"
+               onAction="#onBtnAgregarProductoClicked" prefHeight="54.0" prefWidth="216.0" rippleColor="#9c0b99"
+               text="%AñadirProducto"/>
+    <MFXButton fx:id="unselect" buttonType="RAISED" layoutX="719.0" layoutY="364.0" mnemonicParsing="false"
+               onAction="#onBtnAnularSeleccionClicked" prefHeight="54.0" prefWidth="216.0" rippleColor="#9c0b99"
+               text="%AnularSeleccion"/>
+    <MFXButton fx:id="updateProducto" buttonType="RAISED" layoutX="719.0" layoutY="429.0" mnemonicParsing="false"
+               onAction="#onBtnActualizarProductoClicked" prefHeight="54.0" prefWidth="216.0" rippleColor="#9c0b99"
+               text="%ActualizarProducto"/>
+    <MFXButton fx:id="deleteProducto" buttonType="RAISED" layoutX="719.0" layoutY="494.0" mnemonicParsing="false"
+               onAction="#onBtnEliminarProductoClicked" prefHeight="54.0" prefWidth="216.0" rippleColor="#9c0b99"
+               text="%BorrarProducto"/>
+    <TableView fx:id="tablaProductos" layoutX="29.0" layoutY="14.0" onMouseClicked="#updateFields" prefHeight="334.0"
+               prefWidth="905.0">
+        <columns>
+            <TableColumn fx:id="columnID" minWidth="78.0" prefWidth="100.00003051757812" text="%ID"/>
+            <TableColumn fx:id="columnTipo" minWidth="83.0" prefWidth="138.39999389648438" text="%Tipo"/>
+            <TableColumn fx:id="columnNombre" prefWidth="296.79998779296875" text="%Nombre"/>
+            <TableColumn fx:id="columnPrecio" minWidth="0.0" prefWidth="90.0" text="%Precio"/>
+            <TableColumn fx:id="columnStock" minWidth="69.0" prefWidth="90.0" text="%Stock"/>
+            <TableColumn fx:id="columnCaducidad" prefWidth="179.9998779296875" text="%Caducidad"/>
+        </columns>
+    </TableView>
+    <MFXComboBox fx:id="selectorType" layoutX="29.0" layoutY="385.0" onAction="#onTipoProductoElegido" prefHeight="18.0"
+                 prefWidth="183.0"/>
+    <MFXTextField fx:id="txtNombre" floatMode="BORDER" layoutX="29.0" layoutY="464.0" prefHeight="18.0"
+                  prefWidth="254.0"/>
+    <MFXTextField fx:id="txtPrecio" floatMode="BORDER" layoutX="30.0" layoutY="542.0" prefHeight="18.0"
+                  prefWidth="102.0"/>
+    <MFXTextField fx:id="txtStock" floatMode="BORDER" layoutX="175.0" layoutY="541.0" prefHeight="18.0"
+                  prefWidth="102.0"/>
+    <MFXDatePicker fx:id="pickerCaducidad" layoutX="246.0" layoutY="385.0" prefHeight="38.0" prefWidth="146.0"/>
+    <MFXListView fx:id="listIngredientes" layoutX="434.0" layoutY="385.0" prefHeight="134.0" prefWidth="222.0"/>
+    <Label layoutX="29.0" layoutY="363.0" text="%Tipo"/>
+    <Label layoutX="29.0" layoutY="444.0" text="%Nombre"/>
+    <Label layoutX="175.0" layoutY="523.0" text="%Stock"/>
+    <Label layoutX="29.0" layoutY="523.0" text="%Precio"/>
+    <Label fx:id="labelCaducidad" layoutX="246.0" layoutY="363.0" text="%Caducidad"/>
+    <Label layoutX="434.0" layoutY="362.0" text="%Ingredientes"/>
+    <MFXTextField fx:id="txtIngrediente" floatMode="BORDER" layoutX="434.0" layoutY="549.0" prefHeight="54.0"
+                  prefWidth="222.0"/>
+    <MFXButton fx:id="addIngrediente" buttonType="RAISED" layoutX="719.0" layoutY="581.0" mnemonicParsing="false"
+               onAction="#onBtnAnadirIngredinteClicked" prefHeight="38.0" prefWidth="102.0" rippleColor="#9c0b99"
+               text="%Añadir"/>
+    <MFXButton fx:id="deleteIngrediente" buttonType="RAISED" layoutX="832.0" layoutY="581.0" mnemonicParsing="false"
+               onAction="#onBtnEliminarIngredienteClicked" prefHeight="38.0" prefWidth="102.0" rippleColor="#9c0b99"
+               text="%Eliminar"/>
+    <Label layoutX="434.0" layoutY="528.0" text="%Ingrediente"/>
+    <Label layoutX="719.0" layoutY="556.0" text="%Ingredientes"/>
+</AnchorPane>

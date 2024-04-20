@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXListView?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane prefHeight="700.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="gui.pantallas.carrito.CarritoController">
+    <TableView fx:id="tablaProductos" layoutX="27.0" layoutY="50.0" onMouseClicked="#updateFields" prefHeight="389.0"
+               prefWidth="730.0">
+        <columns>
+            <TableColumn fx:id="columnID" minWidth="72.00000190734863" prefWidth="72.00000190734863" text="%ID"/>
+            <TableColumn fx:id="columnTipo" minWidth="83.0" prefWidth="135.20000457763672" text="%Tipo"/>
+            <TableColumn fx:id="columnNombre" prefWidth="165.0" text="%Nombre"/>
+            <TableColumn fx:id="columnPrecio" minWidth="0.0" prefWidth="90.0" text="%Precio"/>
+            <TableColumn fx:id="columnUnidades" minWidth="0.0" prefWidth="90.0" text="%Cantidad"/>
+            <TableColumn fx:id="columnCaducidad" prefWidth="159.99993896484375" text="%Caducidad"/>
+        </columns>
+    </TableView>
+    <Label layoutX="765.0" layoutY="64.0" text="%Ingredientes"/>
+    <MFXListView fx:id="listIngredientes" layoutX="765.0" layoutY="87.0" prefHeight="352.0" prefWidth="158.0"/>
+    <MFXButton fx:id="pagar" buttonType="RAISED" layoutX="283.0" layoutY="544.0" mnemonicParsing="false"
+               onAction="#onBtnPagarClicked" prefHeight="40.0" prefWidth="218.0" rippleColor="#9c0b99"
+               text="%FinalizarCompra"/>
+    <MFXButton fx:id="verProductos" buttonType="RAISED" layoutX="283.0" layoutY="486.0" mnemonicParsing="false"
+               onAction="#verProductos" prefHeight="40.0" prefWidth="218.0" rippleColor="#9c0b99"
+               text="%SeguirComprando"/>
+</AnchorPane>

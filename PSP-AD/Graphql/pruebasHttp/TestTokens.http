@@ -1,0 +1,336 @@
+### Login
+POST http://localhost:8081/login
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "root",
+  "password": "2dam"
+}
+> {%
+    client.global.set("token", response.body.accessToken)
+    client.global.set("randomUsername", "user" + Math.floor(Math.random() * 1000000))
+    client.test("login correcto", function () {
+        client.assert(response.status ===200, "status es 200")
+    })
+%}
+
+###Refresh token
+GET http://localhost:8081/refresh?token={{token}}
+Accept: application/json
+Content-Type: application/json
+
+{
+    "token": "{{refresh}}"
+}
+
+> {%
+    client.test("refresh correcto", function () {
+        client.assert(response.status ===200, "status es 200")
+    })
+%}
+
+### Register user
+POST http://localhost:8081/register
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "{{randomUsername}}",
+  "password": "2dam"
+}
+> {%
+    client.test("register correcto", function () {
+        client.assert(response.status ===200, "status es 200")
+    })
+    client.global.set("refreshToken", response.body.refreshToken)
+%}
+
+
+
+
+
+### Login user
+POST http://localhost:8081/login
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "{{randomUsername}}",
+    "password": "2dam"
+}
+
+> {%
+    client.global.set("usertoken", response.body.accessToken)
+%}
+
+
+### Get Peliculas
+GRAPHQL {{host}}
+Authorization: Bearer {{token}}
+
+query Peliculas{
+    getPeliculas{
+        id
+        titulo
+        anoLanzamiento
+        duracion
+    }
+}
+
+### Get Actores
+GRAPHQL {{host}}
+Authorization: Bearer {{token}}
+
+query Actores{
+    getActores{
+        nombre
+    }
+}
+
+### Get Directores
+GRAPHQL {{host}}
+Authorization: Bearer {{token}}
+
+query Directores{
+    getDirectores{
+        nombre
+    }
+}
+
+### Get Director por pelicula
+GRAPHQL {{host}}
+Authorization: Bearer {{token}}
+
+query  getDirectorPorPelicula($peliculaId: ID!) {
+  getDirectorPorPelicula(peliculaId: $peliculaId) {
+      id
+      nombre
+      nacionalidad
+      fechaNacimiento
+  }
+}
+
+{
+   "peliculaId": "1"
+}
+
+### Get Actor por pelicula
+GRAPHQL {{host}}
+Authorization: Bearer {{token}}
+
+query  getActorPorPelicula($peliculaId: ID!) {
+  getActorPorPelicula(peliculaId: $peliculaId) {
+      id
+      nombre
+      nacionalidad
+      fechaNacimiento
+  }
+}
+
+{
+   "peliculaId": "1"
+}
+
+### Get Generos pelicula
+GRAPHQL {{host}}
+Authorization: Bearer {{token}}
+
+query  getGenerosPelicula($peliculaId: ID!) {
+  getGenerosPelicula(peliculaId: $peliculaId) {
+      id
+      nombre
+  }
+}
+
+{
+   "peliculaId": "1"
+}
+
+### Get Premios
+GRAPHQL {{host}}
+Authorization: Bearer {{token}}
+
+query Premios{
+    getPremios{
+        id
+        nombre
+        categoria
+        ano
+        peliculaGanadora {
+            id
+            titulo
+            anoLanzamiento
+            duracion
+        }
+    }
+}
+
+### Get Premio por id
+GRAPHQL {{host}}
+Authorization: Bearer {{token}}
+
+query PremioPorId($id: ID!){
+    getPremioPorId(id: $id){
+        id
+        nombre
+        categoria
+        ano
+        peliculaGanadora {
+            id
+            titulo
+            anoLanzamiento
+            duracion
+        }
+    }
+}
+
+{
+   "id": "1"
+}
+
+
+### Add Premio
+GRAPHQL {{host}}
+Authorization: Bearer {{token}}
+
+mutation addPremio($premio: PremioInput!){
+    addPremio(premioInput: $premio){
+        id
+        nombre
+        categoria
+        ano
+    }
+}
+
+{
+    "premio": {
+        "nombre": "Oscar",
+        "categoria": "Mejor Pelicula",
+        "ano": 2021,
+        "peliculaGanadoraId": "1"
+    }
+}
+
+> {%
+    client.global.set("premioId", response.body.data.addPremio.id)
+%}
+
+### Update Premio
+GRAPHQL {{host}}
+Authorization: Bearer {{token}}
+
+mutation updatePremio($premio: UpdatePremioInput!){
+    updatePremio(updatePremioInput: $premio){
+        id
+        nombre
+        categoria
+        ano
+    }
+}
+
+{
+    "premio": {
+        "id": "{{premioId}}",
+        "nombre": "Oscar",
+        "categoria": "Mejor Pelicula",
+        "ano": 2021,
+        "peliculaGanadoraId": "1"
+    }
+}
+
+### Delete Premio
+GRAPHQL {{host}}
+Authorization: Bearer {{token}}
+
+mutation deletePremio($id: ID!){
+    deletePremio(id: $id)
+}
+
+{
+    "id": "{{premioId}}"
+}
+
+### Update Premio with Invalid ID
+GRAPHQL {{host}}
+Authorization: Bearer {{token}}
+
+mutation updatePremio($premio: UpdatePremioInput!){
+    updatePremio(updatePremioInput: $premio){
+        id
+        nombre
+        categoria
+        ano
+    }
+}
+
+{
+  "premio": {
+    "id": "{{premioId}}",
+    "nombre": "Oscar",
+    "categoria": "Mejor Pelicula",
+    "ano": 2021,
+    "peliculaGanadoraId": "1"
+  }
+}
+> {%
+    client.test("not found", function() {
+        client.assert(response.body.errors[0].message === "El premio no existe", "Error message is correct")
+    })
+%}
+
+### Delete Premio with Non-existent ID
+GRAPHQL {{host}}
+Authorization: Bearer {{token}}
+
+mutation deletePremio($id: ID!){
+    deletePremio(id: $id)
+}
+
+{
+  "id": "{{premioId}}"
+}
+> {%
+client.test("not found", function() {
+    //TODO
+    client.assert(response.body.errors[0].message === "El premio no existe", "Error message is correct")
+})
+%}
+
+### Delete Premio de un user
+GRAPHQL {{host}}
+Authorization: Bearer {{usertoken}}
+
+mutation deletePremio($id: ID!){
+    deletePremio(id: $id)
+}
+
+{
+  "id": "1"
+}
+> {%
+    client.test("no permission", function() {
+        //TODO
+        client.assert(response.body.errors[0].message === "Forbidden", "Error message is correct")
+    })
+%}
+
+###Expired Token
+GRAPHQL {{host}}
+Authorization: Bearer {{expiredtoken}}
+
+query Peliculas{
+    getPeliculas{
+        id
+        titulo
+        anoLanzamiento
+        duracion
+    }
+}
+
+> {%
+    client.test("Token caducado", function () {
+        client.assert(response.status === 401, "status es 401")
+        client.assert(response.body === "Token expired", "Error message is correct")
+    })
+%}

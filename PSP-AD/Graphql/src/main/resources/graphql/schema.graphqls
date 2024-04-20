@@ -1,0 +1,117 @@
+# Define los tipos de datos y sus relaciones
+scalar LocalDate
+
+type Director {
+    id: ID!
+    nombre: String!
+    nacionalidad: String!
+    fechaNacimiento: LocalDate!
+}
+
+type Pelicula {
+    id: ID!
+    titulo: String!
+    anoLanzamiento: Int!
+    duracion: Int!
+    director: Director!
+    premios: [Premio!]!
+}
+
+type Actor {
+    id: ID!
+    nombre: String!
+    nacionalidad: String!
+    fechaNacimiento: LocalDate!
+}
+
+type Genero {
+    id: ID!
+    nombre: String!
+    peliculas: [Pelicula!]!
+}
+
+type Premio {
+    id: ID!
+    nombre: String!
+    categoria: String!
+    ano: Int!
+    peliculaGanadora: Pelicula!
+}
+
+# Define las consultas disponibles
+
+type Query {
+    getDirectores: [Director!]!
+    getDirectorPorId(id: ID!): Director
+    getDirectorPorPelicula(peliculaId: ID!): Director
+    getPeliculas: [Pelicula!]!
+    getPeliculaPorId(id: ID!): Pelicula
+    getActores: [Actor!]!
+    getActoresPelicula(peliculaId: ID!): [Actor!]!
+    getGeneros: [Genero!]!
+    getGenerosPelicula(peliculaId: ID!): [Genero!]!
+    getPremios: [Premio!]!
+    getPremioPorId(id: ID!): Premio
+}
+
+# Define las mutaciones disponibles
+
+type Mutation {
+    addDirector(directorInput: DirectorInput!): Director!
+    deleteDirector(id: ID!) : Boolean
+    updateDirector(updateDirectorInput: UpdateDirectorInput!) : Director!
+    deletePelicula(id: ID!) : Boolean
+    deleteActor(id: ID!) : Boolean
+    addGenero(generoInput: GeneroInput!): Genero!
+    addPremio(premioInput: PremioInput!): Premio!
+    updatePremio(updatePremioInput: UpdatePremioInput!) : Premio!
+    deletePremio(id: ID!) : Boolean
+}
+
+# Define los inputs para las mutaciones
+
+input DirectorInput {
+    nombre: String!
+    nacionalidad: String!
+    fechaNacimiento: LocalDate!
+}
+
+input UpdateDirectorInput {
+    id: ID!
+    nombre: String!
+    nacionalidad: String!
+    fechaNacimiento: LocalDate!
+}
+
+input PeliculaInput {
+    titulo: String!
+    anoLanzamiento: Int!
+    duracion: Int!
+    directorId: ID!
+}
+
+input ActorInput {
+    nombre: String!
+    nacionalidad: String!
+    fechaNacimiento: LocalDate!
+}
+
+input GeneroInput {
+    nombre: String!
+}
+
+input PremioInput {
+    nombre: String!
+    categoria: String!
+    ano: Int!
+    peliculaGanadoraId: ID!
+}
+
+
+input UpdatePremioInput {
+    id: ID!
+    nombre: String!
+    categoria: String!
+    ano: Int!
+    peliculaGanadoraId: ID!
+}
